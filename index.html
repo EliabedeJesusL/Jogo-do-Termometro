@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TermoDesafio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Tela Inicial -->
+    <div id="initial-screen">
+        <div class="initial-content">
+            <h1>Bem-vindo ao TermoDesafio</h1>
+            <p>Testa sua habilidade de adivinhar a temperatura correta com base em diferentes escalas. O objetivo é ser o mais preciso possível.</p>
+            <h2>Regras de Pontuação</h2>
+            <ul>
+                <li><strong>Acerto Exato (0°C de erro):</strong> +10 pontos.</li>
+                <li><strong>Erro Pequeno (1°C a 5°C de erro):</strong> +5 pontos.</li>
+                <li><strong>Erro Moderado (6°C a 10°C de erro):</strong> +2 pontos.</li>
+                <li><strong>Erro Grande (Mais de 10°C de erro):</strong> -5 pontos.</li>
+                <li><strong>Bônus:</strong> +20 pontos por três acertos exatos consecutivos.</li>
+            </ul>
+            <button id="startButton">Iniciar Jogo</button>
+        </div>
+    </div>
+
+    <!-- Jogo -->
+    <div id="main-container" style="display: none;">
+        <div class="content-wrapper">
+            <h1>TermoDesafio</h1>
+            <div class="info">
+                <p class="info-item"><strong>Nível:</strong> <span id="level">1</span></p>
+                <p class="info-item"><strong>Temperatura alvo:</strong> <span id="target-temperature">0</span> <span id="target-scale"></span></p>
+            </div>
+            <div class="temperature-bar"><div id="fill-bar"></div></div>
+            <div class="temperature-input">
+                <input type="number" id="tempInput" min="-273" max="100" value="20" oninput="updateTemperatureBar()">
+                <span class="unit">°C</span>
+            </div>
+            <button id="verifyButton" onclick="verifyTemperature()">Verificar</button>
+            <div id="additional-info">
+                <p id="timer">Tempo restante: <span id="timeLeft">02:00</span></p>
+                <p id="score">Pontuação: <span id="points">0</span></p>
+            </div>
+        </div>
+        <div class="thermometer"><img src="termometro.png" alt="Termômetro"></div>
+    </div>
+
+    <!-- Tela Final -->
+    <div class="final-screen" style="display: none;">
+        <div class="final-screen-content">
+            <h1>Parabéns!</h1>
+            <p id="final-score">Pontuação Final: 0</p>
+            <div class="button-container">
+                <button id="resetButton">Jogar Novamente</button>
+                <button id="homeButton" onclick="goToHome()">Voltar ao Início</button>
+            </div>
+        </div>
+    </div>      
+    <script src="script.js"></script>
+</body>
+</html>

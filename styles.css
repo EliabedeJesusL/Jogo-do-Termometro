@@ -1,0 +1,371 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Tela Inicial */
+#initial-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    color: #333;
+    text-align: center;
+}
+
+.initial-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+}
+
+.initial-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.initial-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.initial-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #007BFF;
+}
+
+.initial-content ul {
+    text-align: left;
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.initial-content ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#startButton {
+    background-color: #28a745;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#startButton:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+#main-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.content-wrapper {
+    width: 60%;
+}
+
+h1 {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.info {
+    margin-bottom: 20px;
+}
+
+.info-item {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.info-item span {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.temperature-bar {
+    width: 50px;
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: 0 auto 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#fill-bar {
+    width: 100%;
+    height: 0%;
+    background-color: #FF4500;
+    position: absolute;
+    bottom: 0;
+    transition: height 0.3s ease;
+}
+
+.temperature-bar::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    width: 30px;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 10px,
+        rgba(0, 0, 0, 0.2) 10px,
+        rgba(0, 0, 0, 0.2) 12px
+    );
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.temperature-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.temperature-input input[type="number"] {
+    width: 120px;
+    padding: 15px;
+    font-size: 24px;
+    border: 2px solid #007BFF;
+    border-radius: 10px;
+    text-align: right;
+    outline: none;
+    margin-right: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.temperature-input input[type="number"]:focus {
+    border-color: #0056b3;
+}
+
+.temperature-input .unit {
+    font-size: 24px;
+    color: #007BFF;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#additional-info p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.thermometer {
+    width: 30%;
+}
+
+.thermometer img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
+
+.final-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+    box-sizing: border-box;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.final-screen-content {
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.final-screen h1 {
+    font-size: 48px;
+    color: #28a745;
+    margin: 20px 0;
+}
+
+.final-screen p {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.final-screen button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.final-screen button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    #main-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .content-wrapper {
+        width: 100%;
+    }
+
+    .thermometer {
+        width: 50%;
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .temperature-input input[type="number"] {
+        width: 100px;
+        font-size: 20px;
+    }
+
+    .temperature-input .unit {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .temperature-input input[type="number"] {
+        width: 80px;
+        font-size: 18px;
+    }
+
+    .temperature-input .unit {
+        font-size: 18px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .thermometer {
+        width: 60%;
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#homeButton {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#homeButton:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.final-screen button:nth-of-type(1) {
+    background-color: #28a745; /* Cor verde */
+}
+
+.final-screen button:nth-of-type(1):hover {
+    background-color: #218838; /* Cor verde mais escura ao passar o mouse */
+}
