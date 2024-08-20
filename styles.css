@@ -29,6 +29,8 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     max-width: 600px;
     width: 90%;
+    margin: 20px; /* Margem para criar espaçamento em torno do contêiner */
+    box-sizing: border-box;
 }
 
 .initial-content h1 {
@@ -88,7 +90,8 @@ body {
     width: 80%;
     max-width: 800px;
     text-align: center;
-    transition: opacity 0.3s ease;
+    margin: 20px; /* Margem para criar espaçamento em torno do contêiner */
+    box-sizing: border-box;
 }
 
 .content-wrapper {
@@ -221,7 +224,9 @@ button:disabled {
 }
 
 .final-screen {
-    display: none;
+    display: flex; /* Usar Flexbox para centralizar */
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -229,7 +234,6 @@ button:disabled {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
-    text-align: center;
     padding: 50px;
     box-sizing: border-box;
     z-index: 1000;
@@ -245,7 +249,8 @@ button:disabled {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     max-width: 600px;
     width: 90%;
-    margin: 0 auto;
+    margin: 20px; /* Margem para criar espaçamento em torno do contêiner */
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -281,64 +286,6 @@ button:disabled {
     transform: translateY(-3px);
 }
 
-@media (max-width: 768px) {
-    #main-container {
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .content-wrapper {
-        width: 100%;
-    }
-
-    .thermometer {
-        width: 50%;
-        margin-top: 20px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    .temperature-input input[type="number"] {
-        width: 100px;
-        font-size: 20px;
-    }
-
-    .temperature-input .unit {
-        font-size: 20px;
-    }
-
-    button {
-        padding: 12px 24px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 24px;
-    }
-
-    .temperature-input input[type="number"] {
-        width: 80px;
-        font-size: 18px;
-    }
-
-    .temperature-input .unit {
-        font-size: 18px;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-
-    .thermometer {
-        width: 60%;
-    }
-}
-
 .button-container {
     display: flex;
     justify-content: space-between;
@@ -368,4 +315,60 @@ button:disabled {
 
 .final-screen button:nth-of-type(1):hover {
     background-color: #218838; /* Cor verde mais escura ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+    #main-container, .final-screen-content, .initial-content {
+        width: 95%;
+        padding: 20px;
+        margin: 10px; /* Reduz a margem em telas menores */
+    }
+
+    #startButton, button, #homeButton {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+    .initial-content h1, .final-screen h1 {
+        font-size: 36px;
+    }
+
+    .initial-content h2, .info-item, .final-screen p {
+        font-size: 20px;
+    }
+
+    .temperature-bar {
+        width: 40px;
+        height: 120px;
+    }
+
+    .temperature-input input[type="number"] {
+        width: 100px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .initial-content h1, .final-screen h1 {
+        font-size: 28px;
+    }
+
+    .initial-content h2, .info-item, .final-screen p {
+        font-size: 18px;
+    }
+
+    .temperature-bar {
+        width: 30px;
+        height: 100px;
+    }
+
+    .temperature-input input[type="number"] {
+        width: 80px;
+        font-size: 18px;
+    }
+
+    #startButton, button, #homeButton {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
 }
